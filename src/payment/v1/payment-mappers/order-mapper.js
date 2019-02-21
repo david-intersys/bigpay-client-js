@@ -68,7 +68,7 @@ export default class OrderMapper {
      */
     mapToCoupons({ order = {} }) {
         if (order.coupon && order.coupon.coupons) {
-            return order.coupon.coupons.map(({ code }) => ({ code }));
+            return order.coupon.coupons.map(({ code, discount }) => ({ code, discount, amount: order.coupon.discountedAmount }));
         }
 
         return [];
